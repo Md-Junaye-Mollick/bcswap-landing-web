@@ -5,7 +5,6 @@ import Header from '../../components/header';
 const Kyc = () => {
   return (
     <div>
-        <Header/>
       <KycHero/>
     </div>
   )

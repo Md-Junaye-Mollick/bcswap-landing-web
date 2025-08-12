@@ -5,8 +5,7 @@ import LoginHero from '../../components/Login/Login';
 const Login = () => {
   return (
     <div>
-        <Header/>
-        <LoginHero/>
+      <LoginHero/>
     </div>
   )
 }

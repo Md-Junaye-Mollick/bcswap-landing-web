@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import AboutSwiper from "../swipers/about-swiper";
+import logoicon from '../../../public/images/logo-icon.png';
 
 // --- Re-usable Matrix Animation Components ---
 
@@ -88,6 +88,25 @@ const AboutSection = () => {
     },
   };
 
+  const logoAnimationVariants = {
+    animate: {
+      y: [0, -10, 0],
+      scale: [1, 1.05, 1],
+      transition: {
+        y: {
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut"
+        },
+        scale: {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }
+      }
+    }
+  };
+
   const textContainerVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -116,9 +135,17 @@ const AboutSection = () => {
           {/* Left: Image */}
           <motion.div
             variants={imageVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
             className="flex justify-center items-center w-full lg:w-6/12"
           >
-            <AboutSwiper />
+            <motion.img
+              src={logoicon}
+              alt="BC Cash Logo"
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
+              variants={logoAnimationVariants}
+              animate="animate"
+            />
           </motion.div>
 
           {/* Right: Text */}
@@ -129,17 +156,17 @@ const AboutSection = () => {
             className="flex-1"
           >
             <MatrixText
-              text="About BC Swap"
+              text="About BC Cash"
               inView={inView}
               className="text-3xl md:text-4xl font-bold mb-4"
             />
             <MatrixText
-              text="BC Swap is a decentralized platform that allows you to seamlessly bridge, send, receive, and swap tokens or coins across different blockchains."
+              text="It is with immense pride and optimism that I present to you BC CASH Litepaper v1.0 — not merely a technical document, but a clear declaration of our shared ambition to redefine the future of our Blockchain First Meme Coin."
               inView={inView}
               className="text-lg text-dispute-color mb-4 leading-relaxed"
             />
             <MatrixText
-              text="It also features a built-in transaction explorer so you can track all your activities securely. Whether you're moving assets or exploring your history — BC Swap is built for performance and trust."
+              text="Let’s work together to create bridges between legacy finance and decentralized futures.Remember — “Big Dream with Bright Future” is not just a slogan. It is our mission, our motivation, and our roadmap."
               inView={inView}
               className="text-lg text-dispute-color leading-relaxed"
             />
