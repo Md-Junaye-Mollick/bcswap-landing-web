@@ -4,6 +4,8 @@ import PrivacyPolicyPage from "./pages/privacy-policy-page";
 import TermsServicesPage from "./pages/terms-services-page";
 import Layout from "./components/layout";
 import ScrollToTop from "./components/scroll-to-top";
+import Login from "./pages/Login/Login";
+import Kyc from "./pages/Kyc/Kyc";
 
 function App() {
   return (
@@ -13,7 +15,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="terms-services" element={<TermsServicesPage />} />
+          
         </Route>
+        <Route path="Login" element={<Login />} />
+        <Route path="Kyc" element={<Kyc />} />
       </Routes>
     </BrowserRouter>
   );
