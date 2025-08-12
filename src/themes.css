@@ -1,0 +1,176 @@
+/* Updated Styles with New Color Scheme */
+
+/* Dispute/Main text color */
+.text-dispute-color {
+  color: theme("colors.dispute-color");
+}
+
+.dark .text-dispute-color {
+  color: theme("colors.dispute-color-dark");
+}
+
+.dim .text-dispute-color {
+  color: theme("colors.dispute-color-dim");
+}
+
+/* Primary text color */
+.text-text-color {
+  color: theme("colors.text-color");
+}
+
+.dark .text-text-color {
+  color: theme("colors.text-color-dark");
+}
+
+.dim .text-text-color {
+  color: theme("colors.text-color-dim");
+}
+
+/* Card background color */
+.bg-card {
+  background-color: theme("colors.card");
+}
+
+.dark .bg-card {
+  background-color: theme("colors.card-dark");
+}
+
+.dim .bg-card {
+  background-color: theme("colors.card-dim");
+}
+
+/* Sub-card background color */
+.bg-sub-card {
+  background-color: theme("colors.sub-card");
+}
+
+.dark .bg-sub-card {
+  background-color: theme("colors.sub-card-dark");
+}
+
+.dim .bg-sub-card {
+  background-color: theme("colors.sub-card-dim");
+}
+
+/* Custom border color */
+.border-custom-border {
+  border-color: theme("colors.custom-border");
+}
+
+.dark .border-custom-border {
+  border-color: theme("colors.custom-border-dark");
+}
+
+.dim .border-custom-border {
+  border-color: theme("colors.custom-border-dim");
+}
+
+/* Pre-bg background color */
+.bg-pre-bg {
+  background-color: theme("colors.pre-bg");
+}
+
+.dark .bg-pre-bg {
+  background-color: theme("colors.pre-bg-dark");
+}
+
+.dim .bg-pre-bg {
+  background-color: theme("colors.pre-bg-dim");
+}
+
+/* Primary background color */
+.bg-primary {
+  background-color: theme("colors.bg-primary");
+}
+
+.dark .bg-primary {
+  background-color: theme("colors.bg-primary-dark");
+}
+
+.dim .bg-primary {
+  background-color: theme("colors.bg-primary-dim");
+}
+
+/* Secondary background color */
+.bg-secondary {
+  background-color: theme("colors.bg-secondary");
+}
+
+.dark .bg-secondary {
+  background-color: theme("colors.bg-secondary-dark");
+}
+
+.dim .bg-secondary {
+  background-color: theme("colors.bg-secondary-dim");
+}
+
+/* Accent color */
+.text-accent {
+  color: theme("colors.accent");
+}
+
+.dark .text-accent {
+  color: theme("colors.accent-dark");
+}
+
+.dim .text-accent {
+  color: theme("colors.accent-dim");
+}
+
+/* Accent background */
+.bg-accent {
+  background-color: theme("colors.accent");
+}
+
+.dark .bg-accent {
+  background-color: theme("colors.accent-dark");
+}
+
+.dim .bg-accent {
+  background-color: theme("colors.accent-dim");
+}
+
+/* Border accent */
+.border-accent {
+  border-color: theme("colors.accent");
+}
+
+.dark .border-accent {
+  border-color: theme("colors.accent-dark");
+}
+
+.dim .border-accent {
+  border-color: theme("colors.accent-dim");
+}
+
+/* Gradient backgrounds */
+.bg-gradient-teal {
+  background: linear-gradient(135deg, theme("colors.gradient-start") 0%, theme("colors.gradient-end") 100%);
+}
+
+.dark .bg-gradient-teal {
+  background: linear-gradient(135deg, theme("colors.gradient-start-dark") 0%, theme("colors.gradient-end-dark") 100%);
+}
+
+.dim .bg-gradient-teal {
+  background: linear-gradient(135deg, theme("colors.gradient-start-dim") 0%, theme("colors.gradient-end-dim") 100%);
+}
+
+/* Gradient hover state */
+.bg-gradient-teal-hover:hover {
+  background: linear-gradient(135deg, #00e6bb 0%, #00b8a0 100%);
+}
+
+/* Glow effects */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+}
+
+.shadow-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 170, 0.5);
+}
+
+/* Button transition effects */
+.btn-transition {
+  transition: all 0.3s ease-in-out;
+}

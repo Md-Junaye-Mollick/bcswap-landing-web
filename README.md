@@ -1,0 +1,1 @@
+```pm2 start serve --name "bcswap_landing" -- -s dist -l 3000```
