@@ -61,7 +61,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-xs ">
-          &copy; {new Date().getFullYear()} BC Swap. All rights reserved.
+          &copy; {new Date().getFullYear()} BC Cash. All rights reserved.
         </p>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { Play, X } from "lucide-react";
 import logoicon from '../../../public/images/logo-icon.png';
-import flagimg from '../../../public/images/india-national-flag.png';
+import TricolorWaves from "../flag";
 
 const matrixChars =
   "アァカサタナハマヤラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨロヲゴゾドボポヴッン0123456789";
@@ -189,7 +189,9 @@ const HomeSection = () => {
           ref={ref}
           className="relative z-10 w-full pt-12 sm:py-24 sm:px-8 xl:px-24 min-h-screen flex items-center justify-center text-dispute-color overflow-hidden"
         >
-          <img src={flagimg} alt="" className="absolute w-full h-full" />
+          <div className="absolute w-full h-full">
+            <TricolorWaves/>
+          </div>
           <AnimatePresence>
             {inView && (
               <motion.div
@@ -216,40 +218,22 @@ const HomeSection = () => {
                     <motion.a
                       href="/bcswap-latest.apk"
                       download
-                      className="flex justify-center gap-4 items-center bg-black rounded-lg hover:bg-opacity-85 w-full sm:w-48 p-2 cursor-pointer"
+                      className="flex justify-center items-center bg-black rounded-lg hover:bg-opacity-85 w-full sm:w-48 p-2 cursor-pointer"
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <span>
-                        <img
-                          src="/images/apple.png"
-                          className="w-8 h-8"
-                          alt="App Store"
-                        />
-                      </span>
                       <span className="flex flex-col items-start">
-                        <h1 className="text-sm">Download on the</h1>
-                        <p className="text-xl -mt-1.5">App Store</p>
+                        <h1 className="text-xl font-semibold">Download</h1>
                       </span>
                     </motion.a>
                     <motion.button
                       onClick={() => window.open("https://play.google.com/store/apps/details?id=com.pnsoftware.uniswap&hl=en", "_blank")}
-                      className="flex justify-center gap-4 items-center bg-black rounded-lg hover:bg-opacity-85 w-full sm:w-48 p-2 cursor-pointer"
+                      className="flex justify-center gap-4 items-center bg-black rounded-lg hover:bg-opacity-85 w-full sm:w-48 p-2 py-4 cursor-pointer"
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <span>
-                        <img
-                          src="/images/google-play.png"
-                          className="w-8 h-8"
-                          alt="Google Play"
-                        />
-                      </span>
                       <span className="flex flex-col items-start">
-                        <h1 className="text-sm">GET IT ON</h1>
-                        <p className="text-xl -mt-1.5 font-semibold">
-                          Google Play
-                        </p>
+                        <h1 className="text-xl font-semibold">Get Start Now</h1>
                       </span>
                     </motion.button>
                   </motion.div>
