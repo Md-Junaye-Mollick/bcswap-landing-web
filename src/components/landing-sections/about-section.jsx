@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import logoicon from '../../../public/images/logo-icon.png';
+import boximg from '../../../public/images/about-left-img.png';
 
 // --- Re-usable Matrix Animation Components ---
 
@@ -140,7 +140,7 @@ const AboutSection = () => {
             className="flex justify-center items-center w-full lg:w-6/12"
           >
             <motion.img
-              src={logoicon}
+              src={boximg}
               alt="BC Cash Logo"
               className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
               variants={logoAnimationVariants}
@@ -179,7 +179,7 @@ const AboutSection = () => {
               whileTap={{ scale: 0.95 }}
               className="mt-6 px-6 py-3 bg-black text-white rounded-full hover:bg-opacity-85 transition"
             >
-              Get Started
+              Read More
             </motion.button>
           </motion.div>
         </div>
