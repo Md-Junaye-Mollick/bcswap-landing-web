@@ -6,10 +6,21 @@ import { useTheme } from "next-themes";
 const Footer = () => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [userCount, setUserCount] = useState(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    const fetchUserCount = () => {
+      setTimeout(() => {
+        setUserCount(13845);
+      }, 1000);
+    };
+
+    fetchUserCount();
+  }, []); 
 
   return (
     <footer className="w-full px-6 py-10 border-t border-custom-border bg-card">
@@ -39,7 +50,7 @@ const Footer = () => {
             className="hover:text-blue-600 transition"
             title="Twitter"
           >
-            <Instagram size={20} />
+            <Twitter size={20} />
           </a>
           <a
             href="https://github.com"
@@ -47,6 +58,24 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-blue-600 transition"
             title="GitHub"
+          >
+            <Github size={20} />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-600 transition"
+            title="Instagram"
+          >
+            <Instagram size={20} />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-600 transition"
+            title="Facebook"
           >
             <Facebook size={20} />
           </a>
@@ -59,8 +88,20 @@ const Footer = () => {
           </a>
         </div>
 
+        {/* User Counter */}
+        {userCount !== null && (
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            <p>
+              Total Users:{" "}
+              <span className="font-semibold text-gray-800 dark:text-gray-200">
+                {userCount.toLocaleString()}
+              </span>
+            </p>
+          </div>
+        )}
+
         {/* Copyright */}
-        <p className="text-xs ">
+        <p className="text-xs text-gray-500">
           &copy; {new Date().getFullYear()} BC Cash. All rights reserved.
         </p>
       </div>

@@ -39,17 +39,17 @@ module.exports = {
         "pre-bg-dim": "#0a1528",           // From previous dark
 
         // Gradient colors (use dark grayscale now)
-        "gradient-start": "#00d4aa",
+        "gradient-start": "#2563eb",
         "gradient-end": "#00a693",
         "gradient-start-dark": "#333333",  // New dark
         "gradient-end-dark": "#1e1e1e",    // New dark
-        "gradient-start-dim": "#00d4aa",   // From previous dark
+        "gradient-start-dim": "#2563eb",   // From previous dark
         "gradient-end-dim": "#00a693",
 
         // Accent colors
-        "accent": "#00d4aa",
+        "accent": "#2563eb",
         "accent-dark": "#999999",          // New dark neutral
-        "accent-dim": "#00d4aa",           // From previous dark
+        "accent-dim": "#2563eb",           // From previous dark
 
         // Background colors
         "bg-primary": "#ffffff",
@@ -62,9 +62,9 @@ module.exports = {
       },
 
       backgroundImage: {
-        'gradient-teal': 'linear-gradient(135deg, #00d4aa 0%, #00a693 100%)',
+        'gradient-teal': 'linear-gradient(135deg, #2563eb 0%, #00a693 100%)',
         'gradient-teal-hover': 'linear-gradient(135deg, #00e6bb 0%, #00b8a0 100%)',
-        'gradient-green-dim': 'linear-gradient(135deg, #00d4aa 0%, #00a693 100%)', // used former dark colors
+        'gradient-green-dim': 'linear-gradient(135deg, #2563eb 0%, #00a693 100%)', // used former dark colors
       },
 
       boxShadow: {

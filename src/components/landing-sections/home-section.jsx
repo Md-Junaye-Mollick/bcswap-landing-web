@@ -197,7 +197,11 @@ const HomeSection = () => {
         <section
           ref={ref}
           className="relative w-full pt-12 sm:py-24 sm:px-8 xl:px-24 min-h-screen flex items-center justify-center text-black overflow-hidden"
-          style={{ position: 'relative', isolation: 'isolate' }}
+          style={{ 
+            position: 'relative', 
+            isolation: 'isolate',
+            zIndex: 1
+          }}
         >
           {/* Particles Background - Now properly contained */}
           <div 
@@ -208,21 +212,36 @@ const HomeSection = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              pointerEvents: 'none'
+              pointerEvents: 'none',
+              overflow: 'hidden',
+              contain: 'layout style paint'
             }}
           >
-            <Particles
-              id="tsparticles"
-              init={particlesInit}
-              options={particlesConfig}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%'
-              }}
-            />
+            <div style={{ 
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden'
+            }}>
+              <Particles
+                id="tsparticles-home"
+                init={particlesInit}
+                options={{
+                  ...particlesConfig,
+                  fullScreen: { enable: false },
+                  background: { color: { value: "transparent" } }
+                }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  maxWidth: '100%',
+                  maxHeight: '100%'
+                }}
+              />
+            </div>
           </div>
 
           <AnimatePresence>
@@ -242,8 +261,8 @@ const HomeSection = () => {
                     <Cursor cursorStyle="_" />
                   </h1>
 
-                  <div className="relative mb-8 text-center sm:text-left">
-                    <h2 className="lg:text-4xl 2xl:text-5xl font-bold mb-4">
+                  <div className="relative mb-[6.5rem] text-center sm:text-left">
+                    <h2 className="lg:text-4xl 2xl:text-5xl font-bold">
                       <span 
                         style={{
                           background: 'linear-gradient(180deg, #FF6B35 0%, #FF6B35 30%, #ffffffff 55%, #32CD32 80%, #228B22 100%)',
@@ -256,7 +275,7 @@ const HomeSection = () => {
                       </span>
                       <span className="text-dispute-color">Meme Coin</span>
                     </h2>
-                    {/* <img src={flagimg} alt="" className="absolute w-full " /> */}
+                    <img src={flagimg} alt="" className="absolute w-full" />
                   </div>
 
                   <motion.div
