@@ -11,7 +11,9 @@ import {
   User, 
   Building2,
   Globe,
-  CheckCircle
+  CheckCircle,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 const ContactUs = () => {
@@ -25,6 +27,7 @@ const ContactUs = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [expandedFaqIndex, setExpandedFaqIndex] = useState(0); // FAQ state
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -59,6 +62,10 @@ const ContactUs = () => {
     }, 2000);
   };
 
+  const toggleFaqExpanded = (index) => {
+    setExpandedFaqIndex(expandedFaqIndex === index ? null : index);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -87,6 +94,19 @@ const ContactUs = () => {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" }
     }
+  };
+
+  const faqItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+      },
+    },
   };
 
   const contactInfo = [
@@ -121,6 +141,38 @@ const ContactUs = () => {
       description: "We're here to help during business hours",
       color: "text-purple-500",
       bgColor: "bg-purple-100"
+    }
+  ];
+
+  // FAQ data from FaqSection
+  const faqData = [
+    {
+      question: "How can I build my financial future with BC Cash?",
+      answer: "Grow your assets by swapping, staking, or holding BC Cash—enjoy low fees and flexible rewards designed for everyday users. As the project expands, early adopters can benefit from new earning opportunities."
+    },
+    {
+      question: "How can I buy BC Cash?",
+      answer: "Getting started is simple: create a wallet like MetaMask or Trust Wallet, fund it with USDT or INR, and swap for BC Cash on popular exchanges such as BC Exchange or BC Swap."
+    },
+    {
+      question: "How do transactions and fees work?",
+      answer: "BC Cash transactions are ultra-fast and settle within seconds. Fees are transparent, affordable, and clearly shown before you confirm—so there are no surprises."
+    },
+    {
+      question: "What can I do with BC Cash?",
+      answer: "You can send, swap, stake, and spend BC Cash with supported merchants or use it in DeFi, gaming, and NFT apps. The ecosystem keeps expanding!"
+    },
+    {
+      question: "Is BC Cash audited or secure?",
+      answer: "Yes—BC Cash uses multi-layer cryptography and has undergone smart contract audits. Providing you self-custody options ensures your assets stay safe."
+    },
+    {
+      question: "Where can I find updates and join the community?",
+      answer: "Stay up to date by reading the BC Cash official website, following social channels, or joining Telegram and Discord. Community feedback helps shape future releases!"
+    },
+    {
+      question: "Is BC Cash a \"Pump & Dump\" or a real project?",
+      answer: "BC Cash is committed to long-term growth and proven utility. Registered and regularly audited, it's designed for real financial use—not just short-term speculation."
     }
   ];
 
@@ -319,23 +371,107 @@ const ContactUs = () => {
             animate={inView ? "visible" : "hidden"}
             className="space-y-8"
           >
-            {/* FAQ Section */}
+            {/* Interactive FAQ Section */}
             <div className="bg-card border border-custom-border rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-dispute-color">Frequently Asked Questions</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">How secure is BC Cash?</h4>
-                  <p className="text-dispute-color">BC Cash uses advanced encryption and security protocols to ensure your transactions are safe and secure.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">What cryptocurrencies are supported?</h4>
-                  <p className="text-dispute-color">We support major cryptocurrencies including Bitcoin, Ethereum, and many others for cross-chain operations.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">How fast are transactions?</h4>
-                  <p className="text-dispute-color">Most transactions are completed within minutes, depending on network congestion and blockchain confirmation times.</p>
-                </div>
-              </div>
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                className="space-y-4 max-h-[16rem] overflow-y-auto pr-2"
+                style={{
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'rgba(59, 130, 246, 0.3) transparent'
+                }}
+              >
+                <style jsx>{`
+                  /* Custom scrollbar for webkit browsers */
+                  .space-y-4::-webkit-scrollbar { =
+                    width: 6px;
+                  }
+                  .space-y-4::-webkit-scrollbar-track {
+                    background: transparent;
+                  }
+                  .space-y-4::-webkit-scrollbar-thumb {
+                    background: rgba(59, 130, 246, 0.3);
+                    border-radius: 3px;
+                  }
+                  .space-y-4::-webkit-scrollbar-thumb:hover {
+                    background: rgba(59, 130, 246, 0.5);
+                  }
+                `}</style>
+                {faqData.map((faq, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={faqItemVariants}
+                    whileHover={{
+                      scale: 1.02,
+                      y: -2,
+                    }}
+                    className="group bg-sub-card border border-custom-border rounded-xl overflow-hidden transition-all duration-300 relative"
+                    style={{
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 8px 30px rgba(59, 130, 246, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                    }}
+                  >
+                    {/* Background Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                    
+                    <button
+                      onClick={() => toggleFaqExpanded(idx)}
+                      className="relative z-10 w-full p-4 text-left flex items-center justify-between cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-sub-card"
+                    >
+                      {/* Question text */}
+                      <h4 className="text-sm font-semibold text-dispute-color pr-4 group-hover:text-blue-400 transition-colors duration-300">
+                        {faq.question}
+                      </h4>
+                      <motion.div 
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-8 h-8 rounded-full bg-card border border-custom-border group-hover:border-blue-500 group-hover:bg-blue-500 flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                      >
+                        <motion.div
+                          animate={{ rotate: expandedFaqIndex === idx ? 180 : 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                          {expandedFaqIndex === idx ? (
+                            <ChevronUp size={16} className="text-dispute-color group-hover:text-white transition-colors duration-300" />
+                          ) : (
+                            <ChevronDown size={16} className="text-dispute-color group-hover:text-white transition-colors duration-300" />
+                          )}
+                        </motion.div>
+                      </motion.div>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {expandedFaqIndex === idx && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="relative z-10 overflow-hidden"
+                        >
+                          <div className="px-4 pb-4">
+                            <div className="w-full h-px bg-custom-border mb-3 opacity-50"></div>
+                            <p className="text-dispute-color leading-relaxed text-sm opacity-90">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Bottom Border Accent */}
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-xl"></div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
 
             {/* Support Hours */}
